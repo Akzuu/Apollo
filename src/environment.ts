@@ -68,4 +68,5 @@ export type getValues =
     'time_to_check_minutes' |
     'maximum_refresh_failures' |
     'sentry_dsn' |
-    'secret';
+    'secret' |
+    'poll_channel_id';

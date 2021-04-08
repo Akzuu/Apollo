@@ -81,6 +81,9 @@ export default class Bot {
             } else {
                 this.replyNoPermissions(message);
             }
+        } else if (message.channel.id === Environment.get('poll_channel_id', 'string', true)) {
+            message.react('👍');
+            message.react('👎')
         }
     }
 
