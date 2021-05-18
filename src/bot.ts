@@ -51,6 +51,7 @@ export default class Bot {
     }
 
     public start() {
+	console.info('Trying to start the bot...');
         this.discord.client.on('ready', async () => {
             console.info('Apollo is ready.');
             console.info('Performing first-start refresh.');
@@ -181,7 +182,7 @@ export default class Bot {
 
         if (!query) {
             if (!errorMessageId) {
-                this.postErrorMessage();
+                // this.postErrorMessage();
             }
         } else {
             this.removeErrorMessage();
