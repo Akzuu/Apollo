@@ -51,7 +51,7 @@ export default class Bot {
     }
 
     public start() {
-	console.info('Trying to start the bot...');
+	    console.info('Trying to start the bot...');
         this.discord.client.on('ready', async () => {
             console.info('Apollo is ready.');
             console.info('Performing first-start refresh.');
@@ -63,6 +63,10 @@ export default class Bot {
         });
 
         this.discord.client.on('message', message => this.onMessage(message));
+
+        this.discord.client.on('error', async (error) => {
+            console.error(error);
+        });
     }
 
     private onMessage(message: Message) {
