@@ -52,8 +52,7 @@ export default class Bot {
 
     public start() {
 	    console.info('Trying to start the bot...');
-        this.discord.client.on('error', error => console.log(error));
-
+        
         this.discord.client.on('ready', async () => {
             console.info('Apollo is ready.');
             console.info('Performing first-start refresh.');
