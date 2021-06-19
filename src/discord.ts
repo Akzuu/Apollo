@@ -56,7 +56,7 @@ export default class Discord {
         this.locale = Environment.locale;
 
         this._client.on('raw', (event: any) => this.onRawEvent(event));
-        this._client.on('ready', () => this.addReactionToReactionMessage());
+        // this._client.on('ready', () => this.addReactionToReactionMessage());
     }
 
     public async createRichEmbed(query?: QueryResult, maintenanceMode?: boolean) {
@@ -317,19 +317,19 @@ export default class Discord {
         }
     }
 
-    private async addReactionToReactionMessage() {
-        const reactionId = Environment.get<string>('reaction_message_id', 'string', true);
+    // private async addReactionToReactionMessage() {
+    //     const reactionId = Environment.get<string>('reaction_message_id', 'string', true);
 
-        if (this.channel) {
-            const message = await this.channel.messages.fetch(reactionId);
+    //     if (this.channel) {
+    //         const message: discord.Message = await this.channel.messages.fetch(reactionId);
 
-            if (message) {
-                this.reaction = await message.react(Environment.get<string>('reaction_emoji', 'string', false));
-            }
-        } else {
-            console.warn(`Channel does not exist.`);
-        }
-    }
+    //         if (message) {
+    //             this.reaction = await message.react(Environment.get<string>('reaction_emoji', 'string', false));
+    //         }
+    //     } else {
+    //         console.warn(`Channel does not exist.`);
+    //     }
+    // }
 
     private async onMessageReactionAdd(event: IReactionEvent) {
         if (event.d.message_id === Environment.get('reaction_message_id', 'string', true)) {
